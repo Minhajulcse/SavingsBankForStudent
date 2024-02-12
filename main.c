@@ -23,20 +23,48 @@ struct node* login(struct node* head){
     struct node* temp = head;
     while(temp != NULL){
         if((temp -> id == id) && (temp -> pass == pass)){
-            printf("\nWelcome back %s\n", temp -> name);
+            print :
+            printf("\n");
+            printf("Welcome back %s\n", temp -> name);
             printf("Your student id is %d \n",temp -> id);
             printf("Your password is %d\n",temp -> pass);
             printf("Your current available bank balance is %.2f\n",temp -> deposit);
              printf("Your total withdraw money is %.2f\n", temp -> withdraw);
+             printf("\n");
             
             break;
         }
         else if(temp -> next == NULL){
+            printf("\n");
             printf("Your entered ID or password is wrong.\nPlease insert right id and password.\n");
             goto login;
         }
         temp = temp -> next;
     }
+    int k;
+    float amount;
+    printf("\n");
+    printf("->>Do you wanna deposit or withdraw you money??? \n");
+    printf("Press 1 for deposit.\n");
+    printf("Press 2 for withdraw .\n");
+    printf("Press 3 for logout . \n");
+    scanf("%d",&k);
+    switch(k){
+        case 1:
+              printf("Enter deposit amount -> ");
+              scanf("%f", &amount);
+              temp -> deposit =(temp -> deposit) + amount;
+              printf("Congratulations , deposit succesfull.\n");
+              printf("Your current available bank balance is %.2f\n",temp -> deposit);
+              goto print;
+              break;
+        case 2:
+              printf("Enter amount for withdraw -> ");
+              break;
+        case 3:
+              return head;
+    }
+    
     return head;
 }
 
@@ -106,6 +134,7 @@ int main() {
         
         case 2:
               head = login(head);
+              goto homepage;
               break;
         
         case 3:
