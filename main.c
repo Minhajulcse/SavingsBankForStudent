@@ -12,6 +12,34 @@ struct node{
     struct node * next;
 };
 
+struct node* login(struct node* head){
+    login :
+    
+    int id, pass;
+    printf("Enter your student ID -> ");
+    scanf("%d",&id);
+    printf("Enter your password -> ");
+    scanf("%d",&pass);
+    struct node* temp = head;
+    while(temp != NULL){
+        if((temp -> id == id) && (temp -> pass == pass)){
+            printf("\nWelcome back %s\n", temp -> name);
+            printf("Your student id is %d \n",temp -> id);
+            printf("Your password is %d\n",temp -> pass);
+            printf("Your current available bank balance is %.2f\n",temp -> deposit);
+             printf("Your total withdraw money is %.2f\n", temp -> withdraw);
+            
+            break;
+        }
+        else if(temp -> next == NULL){
+            printf("Your entered ID or password is wrong.\nPlease insert right id and password.\n");
+            goto login;
+        }
+        temp = temp -> next;
+    }
+    return head;
+}
+
 struct node* signUp(struct node* tail){
     struct node *temp = (struct node*)malloc(sizeof(struct node));
     printf("Enter Your name -> ");
@@ -33,7 +61,7 @@ struct node* userProfile(struct node* head){
         printf("Welcome %s\n",head -> name);
         printf("Your student id is %d \n",head -> id);
         printf("Your password is %d\n",head -> pass);
-        printf("Your deposit money is %.2f\n",head -> deposit);
+        printf("Your current available bank balance is %.2f\n",head -> deposit);
         printf("Your total withdraw money is %.2f\n", head -> withdraw);
         head = head -> next;
         printf("\n");
@@ -42,15 +70,15 @@ struct node* userProfile(struct node* head){
 }
 
 int main() {
-    struct node * temp = (struct node*)malloc(sizeof(struct node));
-    strcpy(temp -> name,"TOTO BANK");
-    temp -> id = 12;
-    temp -> pass = 123;
-    temp -> deposit = 0.0;
-    temp -> withdraw = 0.0;
+    struct node * node1 = (struct node*)malloc(sizeof(struct node));
+    strcpy(node1 -> name,"TOTO BANK");
+    node1 -> id = 12;
+    node1 -> pass = 123;
+    node1 -> deposit = 0.0;
+    node1 -> withdraw = 0.0;
     struct node *head, *tail;
-    head = temp;
-    tail = temp;
+    head = node1;
+    tail = node1;
     
     homepage : 
     printf("\t\tTOTO BANK \n");
@@ -77,12 +105,12 @@ int main() {
               break;
         
         case 2:
-        break;
+              head = login(head);
+              break;
         
         case 3:
-        return 0;
+              return 0;
     }
-    head = userProfile(head);
 
     return 0;
 }
