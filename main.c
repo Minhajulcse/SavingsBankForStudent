@@ -83,21 +83,26 @@ struct node* signUp(struct node* tail){
     return temp;
 }
 
-struct node* userProfile(struct node* head){
+struct node* userProfile(struct node* head, int id, int pass){
     struct node * h = head;
-    while(head != NULL){
-        printf("Welcome %s\n",head -> name);
-        printf("Your student id is %d \n",head -> id);
-        printf("Your password is %d\n",head -> pass);
-        printf("Your current available bank balance is %.2f\n",head -> deposit);
-        printf("Your total withdraw money is %.2f\n", head -> withdraw);
-        head = head -> next;
-        printf("\n");
-    }printf("\n");
+    head = head -> next;
+    int AdminId = 2328, AdminPass = 2222;
+    if(AdminId == id && AdminPass == pass){
+        while(head != NULL){
+            printf("Student name -> %s\n",head -> name);
+            printf("student id is %d \n",head -> id);
+           // printf("Student password is %d\n",head -> pass);
+            printf("Students current available bank balance is %.2f\n",head -> deposit);
+            printf("Student's total withdraw money is %.2f\n", head -> withdraw);
+            head = head -> next;
+            printf("\n");
+        }printf("\n");
+    }
     return h;
 }
 
 int main() {
+    int AdminId = 0, AdminPass = 0;
     struct node * node1 = (struct node*)malloc(sizeof(struct node));
     strcpy(node1 -> name,"TOTO BANK");
     node1 -> id = 12;
@@ -112,7 +117,8 @@ int main() {
     printf("\t\tTOTO BANK \n");
     printf("1.Want to create new accout .\n");
     printf("2.Login your excisting accout .\n");
-    printf("3.Exist\n");
+    printf("3.Admin.\n");
+    printf("4.Exist\n");
     int k;
     scanf("%d",&k);
     
@@ -138,7 +144,13 @@ int main() {
               break;
         
         case 3:
-              return 0;
+              printf("Enter your Admin Id please ->");
+              scanf("%d",&AdminId);
+              printf("Enter your Admin password please ->");
+              scanf("%d",&AdminPass);
+              head = userProfile(head,AdminId,AdminPass);
+              goto homepage;
+              break;
     }
 
     return 0;
