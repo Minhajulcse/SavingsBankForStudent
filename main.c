@@ -87,6 +87,7 @@ struct node* userProfile(struct node* head, int id, int pass){
     struct node * h = head;
     head = head -> next;
     int AdminId = 2328, AdminPass = 2222;
+    int i = 0;
     if(AdminId == id && AdminPass == pass){
         while(head != NULL){
             printf("Student name -> %s\n",head -> name);
@@ -95,8 +96,10 @@ struct node* userProfile(struct node* head, int id, int pass){
             printf("Students current available bank balance is %.2f\n",head -> deposit);
             printf("Student's total withdraw money is %.2f\n", head -> withdraw);
             head = head -> next;
+            i++;
             printf("\n");
-        }printf("\n");
+        }
+        printf("Total Registared Student -> %d\n",i);
     }
     return h;
 }
