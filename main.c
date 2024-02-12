@@ -41,6 +41,7 @@ struct node* login(struct node* head){
         }
         temp = temp -> next;
     }
+    calc:
     int k;
     float amount;
     printf("\n");
@@ -60,6 +61,17 @@ struct node* login(struct node* head){
               break;
         case 2:
               printf("Enter amount for withdraw -> ");
+              scanf("%f",&amount);
+              if(amount > temp -> deposit){
+                  printf("Sorry, You dont have enough money in your account\n");
+                  goto calc;
+              }else if(amount <= temp -> deposit){
+                  temp -> deposit -= amount;
+                  printf("Withdraw Succesful\n");
+                  temp -> withdraw += amount;
+                  printf("available bank balance is %.2f\n",temp -> deposit);
+                  goto print;
+              }
               break;
         case 3:
               return head;
@@ -153,6 +165,9 @@ int main() {
               scanf("%d",&AdminPass);
               head = userProfile(head,AdminId,AdminPass);
               goto homepage;
+              break;
+        case 4:
+              printf("Thankes for explore TOTO BANK. Hope You enjoyed our service.\n");
               break;
     }
 
