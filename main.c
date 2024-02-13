@@ -13,14 +13,15 @@ struct node{
 };
 
 struct node* login(struct node* head){
-    login :
+    struct node* temp = head;
+    int id, pass,k;
+    float amount;
+    Login :
     
-    int id, pass;
     printf("Enter your student ID -> ");
     scanf("%d",&id);
     printf("Enter your password -> ");
     scanf("%d",&pass);
-    struct node* temp = head;
     while(temp != NULL){
         if((temp -> id == id) && (temp -> pass == pass)){
             print :
@@ -37,13 +38,11 @@ struct node* login(struct node* head){
         else if(temp -> next == NULL){
             printf("\n");
             printf("Your entered ID or password is wrong.\nPlease insert right id and password.\n");
-            goto login;
+            goto Login;
         }
         temp = temp -> next;
     }
     calc:
-    int k;
-    float amount;
     printf("\n");
     printf("->>Do you wanna deposit or withdraw you money??? \n");
     printf("Press 1 for deposit.\n");
@@ -117,6 +116,7 @@ struct node* userProfile(struct node* head, int id, int pass){
 }
 
 int main() {
+    int k,n;
     int AdminId = 0, AdminPass = 0;
     struct node * node1 = (struct node*)malloc(sizeof(struct node));
     strcpy(node1 -> name,"TOTO BANK");
@@ -134,7 +134,6 @@ int main() {
     printf("2.Login your excisting accout .\n");
     printf("3.Admin.\n");
     printf("4.Exist\n");
-    int k;
     scanf("%d",&k);
     
     switch(k){
@@ -144,7 +143,6 @@ int main() {
               printf("Congratulation , Your account was created succesfully.\n");
               printf("1.want to go homepage\n");
               printf("2.Exit\n");
-              int n;
               scanf("%d",&n);
               if(n == 1){
                     goto homepage;
