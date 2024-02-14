@@ -43,6 +43,7 @@ struct student * User(){
     return s1;
 }
 struct node* signUp(struct student *s1,struct node* tail){
+    printf("------------------------------------------\n");
     int id, pass;
     struct node *temp = (struct node*)malloc(sizeof(struct node));
     up :
@@ -63,7 +64,9 @@ struct node* signUp(struct student *s1,struct node* tail){
         h = h -> next;
     }
     if(h -> id != id){
-        printf("Incorrect ID, Please insert a valid ID.\n");
+        printf("------------------------------------------\n");
+        printf("| Incorrect ID, Please insert a valid ID. |\n");
+        printf("------------------------------------------\n");
         goto up;
     }        
     printf("Enter a strong password -> ");
@@ -77,6 +80,7 @@ struct node* login(struct node* head){
     struct node* temp = head;
     int id, pass,k;
     float amount;
+    printf("------------------------------------------\n");
     Login :
     
     printf("Enter your student ID -> ");
@@ -87,13 +91,16 @@ struct node* login(struct node* head){
         if((temp -> id == id) && (temp -> pass == pass)){
             print :
             printf("\n");
-            printf("Welcome back %s\n", temp -> name);
-            printf("Your student id is %d \n",temp -> id);
-            printf("Your password is %d\n",temp -> pass);
-            printf("Your current available bank balance is %.2f\n",temp -> deposit);
-             printf("Your total withdraw money is %.2f\n", temp -> withdraw);
-             printf("\n");
-            
+            printf("------------------------------------------------\n");
+            printf("-----------\n");
+            printf("| PROFILE |\n");
+            printf("-----------\n");
+            printf(" Welcome back %s\n", temp -> name);
+            printf(" Your student id is %d \n",temp -> id);
+            printf(" Your password is %d\n",temp -> pass);
+            printf(" Your current available bank balance is %.2f\n",temp -> deposit);
+            printf(" Your total withdraw money is %.2f\n", temp -> withdraw);
+            printf("------------------------------------------------\n");
             break;
         }
         else if(temp -> next == NULL){
@@ -105,10 +112,13 @@ struct node* login(struct node* head){
     }
     calc:
     printf("\n");
-    printf("->>Do you wanna deposit or withdraw you money??? \n");
-    printf("Press 1 for deposit.\n");
-    printf("Press 2 for withdraw .\n");
-    printf("Press 3 for logout . \n");
+    printf("-----------------------------------------------------------------\n");
+    printf("|         >>Do you wanna deposit or withdraw you money???       |\n");
+    printf("|                     Press 1 for deposit.                      |\n");
+    printf("|                     Press 2 for withdraw.                     |\n");
+    printf("|                     Press 3 for logout.                       |\n");
+    printf("-----------------------------------------------------------------\n");
+    printf("\nEnter your choice -> ");
     scanf("%d",&k);
     switch(k){
         case 1:
@@ -146,6 +156,7 @@ struct node* userProfile(struct node* head, int id, int pass){
     int i = 0;
     if(AdminId == id && AdminPass == pass){
         while(head != NULL){
+            printf("--------------------------------------------------------\n");
             printf("Student name -> %s\n",head -> name);
             printf("student id is %d \n",head -> id);
            // printf("Student password is %d\n",head -> pass);
@@ -153,7 +164,7 @@ struct node* userProfile(struct node* head, int id, int pass){
             printf("Student's total withdraw money is %.2f\n", head -> withdraw);
             head = head -> next;
             i++;
-            printf("\n");
+            printf("--------------------------------------------------------\n");
         }
         printf("Total Registared Student -> %d\n",i);
     }
@@ -184,22 +195,30 @@ int main(){
     tail = node1;
 
     homepage : 
-    printf("\t\tTOTO BANK\n");
-    printf("1.Want to create new accout .\n");
-    printf("2.Login your excisting accout .\n");
-    printf("3.Payment \n");
-    printf("4.Admin.\n");
-    printf("5.Exist\n");
+    printf("|------------------------------------------|\n");
+    printf("|\t\t\t\t------------\t\t\t   |\n");
+    printf("|\t\t\t\t| TOTO BANK |              |\n");
+    printf("|\t\t\t\t------------               |\n");
+    printf("|      1.Want to create new accout.        |\n");
+    printf("|      2.Login your excisting accout.      |\n");
+    printf("|      3.Payment.                          |\n");
+    printf("|      4.Admin.                            |\n");
+    printf("|      5.Exist                             |\n");
+    printf("|------------------------------------------|\n");
     printf("\nEnter your choice -> ");
     scanf("%d",&k);
 
     switch(k){
         case 1:
+              printf("------------------------------------------\n");
               printf("Welcome to our family .\n");
               tail = signUp(student1,tail);
               printf("Congratulation , Your account was created succesfully.\n");
-              printf("1.want to go homepage\n");
-              printf("2.Exit\n");
+              printf("-------------------------\n");
+              printf("| 1.want to go homepage |\n");
+              printf("| 2.Exit                |\n");
+              printf("-------------------------\n");
+              printf("\nEnter your choice -> ");
               scanf("%d",&n);
               if(n == 1){
                     goto homepage;
@@ -214,6 +233,7 @@ int main(){
               break;
         
         case 4:
+              printf("------------------------------------------\n");
               printf("Enter your Admin Id please ->");
               scanf("%d",&AdminId);
               printf("Enter your Admin password please ->");
@@ -222,7 +242,9 @@ int main(){
               goto homepage;
               break;
         case 5:
-              printf("Thankes for explore TOTO BANK. Hope You enjoyed our service.\n");
+              printf("----------------------------------------------------------------\n");
+              printf("| Thankes for explore TOTO BANK. Hope You enjoyed our service. |\n");
+              printf("----------------------------------------------------------------\n");
               break;
     }
 
