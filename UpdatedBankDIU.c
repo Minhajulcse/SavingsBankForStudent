@@ -190,6 +190,7 @@ int main(){
     printf("3.Payment \n");
     printf("4.Admin.\n");
     printf("5.Exist\n");
+    printf("\nEnter your choice -> ");
     scanf("%d",&k);
 
     switch(k){
