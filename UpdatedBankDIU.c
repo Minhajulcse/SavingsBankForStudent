@@ -196,9 +196,9 @@ int main(){
 
     homepage : 
     printf("|------------------------------------------|\n");
-    printf("|\t\t\t\t------------\t\t\t   |\n");
-    printf("|\t\t\t\t| TOTO BANK |              |\n");
-    printf("|\t\t\t\t------------               |\n");
+    printf("|                ------------              |\n");
+    printf("|                | TOTO BANK |             |\n");
+    printf("|                ------------              |\n");
     printf("|      1.Want to create new accout.        |\n");
     printf("|      2.Login your excisting accout.      |\n");
     printf("|      3.Payment.                          |\n");
