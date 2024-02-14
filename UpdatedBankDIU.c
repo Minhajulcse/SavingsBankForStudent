@@ -34,7 +34,7 @@ struct student * User(){
 
     strcpy(s3 -> name,"Zarif");
     s3 -> id = 23215914;
-    s3 -> next = NULL;
+    s3 -> next = s4;
 
     strcpy(s4 -> name,"Bayzid");
     s4 -> id = 23215927;
