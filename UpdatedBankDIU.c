@@ -32,7 +32,7 @@ struct student * User(){
     s2 -> next = s3;
 
     strcpy(s3 -> name,"Zarif");
-    s3 -> id = 23215927;
+    s3 -> id = 23215914;
     s3 -> next = NULL;
 
     return s1;
