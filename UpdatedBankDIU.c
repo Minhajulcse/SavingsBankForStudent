@@ -19,7 +19,7 @@ struct node{
 };
 
 struct student * User(){
-    struct student *s1, *s2, *s3;
+    struct student *s1, *s2, *s3, *s4;
     s1 = (struct student*)malloc(sizeof(struct student));
     s2 = (struct student*)malloc(sizeof(struct student));
     s3 = (struct student*)malloc(sizeof(struct student));
