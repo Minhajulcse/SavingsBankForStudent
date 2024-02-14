@@ -28,11 +28,11 @@ struct student * User(){
     s1 -> next = s2;
 
     strcpy(s2 -> name,"Ziad");
-    s2 -> id = 23215934;
+    s2 -> id = 23215935;
     s2 -> next = s3;
 
     strcpy(s3 -> name,"Zarif");
-    s3 -> id = 23215930;
+    s3 -> id = 23215927;
     s3 -> next = NULL;
 
     return s1;
