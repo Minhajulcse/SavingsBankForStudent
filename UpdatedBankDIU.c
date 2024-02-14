@@ -23,6 +23,7 @@ struct student * User(){
     s1 = (struct student*)malloc(sizeof(struct student));
     s2 = (struct student*)malloc(sizeof(struct student));
     s3 = (struct student*)malloc(sizeof(struct student));
+    s4 = (struct student*)malloc(sizeof(struct student));
     strcpy(s1 -> name,"Minhajul");
     s1 -> id = 23215931;
     s1 -> next = s2;
@@ -34,6 +35,10 @@ struct student * User(){
     strcpy(s3 -> name,"Zarif");
     s3 -> id = 23215914;
     s3 -> next = NULL;
+
+    strcpy(s4 -> name,"Bayzid");
+    s4 -> id = 23215927;
+    s4 -> next = NULL;
 
     return s1;
 }
